@@ -18,5 +18,26 @@ CHIP Mux8Way16 {
     OUT out[16];
 
     PARTS:
-    // Put your code here:
+    Not (in=sel[0],out=notsel0);
+    Not (in=sel[1],out=notsel1);
+    Not (in=sel[2],out=notsel2);
+
+    And (a=notsel0,b=notsel1,out=tA);
+    And (a=tA,b=notsel2,out=YesA);
+    And (a=sel[0],b=notsel1,out=tB);
+    And (a=tB,b=notsel2,out=YesB);
+    And (a=notsel0, b=sel[1], out=tC);
+    And (a=tC, b=notsel2, out=YesC);
+    And (a=sel[0],b=sel[1],out=tD);
+    And (a=tA,b=notsel2,out=YesD);
+    And (a=notsel0,b=notsel1,out=tE);
+    And (a=tA,b=sel[2],out=YesE);
+    And (a=sel[0],b=notsel1,out=tF);
+    And (a=tA,b=sel[2],out=YesF);
+    And (a=notsel0,b=sel[1],out=tG);
+    And (a=tA,b=sel[2],out=YesG);
+    And (a=sel[0],b=sel[1],out=tH);
+    And (a=tA,b=sel[2],out=YesH);
+
+    
 }

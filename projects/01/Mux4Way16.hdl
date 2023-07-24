@@ -16,5 +16,139 @@ CHIP Mux4Way16 {
     OUT out[16];
 
     PARTS:
-    // Put your code here:
+    Not (in=sel[0], out=Notsel0);
+    Not (in=sel[1], out=Notsel1);
+
+    And (a=Notsel1, b=Notsel0, out=YesA);
+    And (a=Notsel1, b=sel[0], out=YesB);
+    And (a=sel[1], b=Notsel0, out=YesC);
+    And (a=sel[1], b=sel[0], out=YesD);
+    
+    And (a=YesA, b=a[0], out=temp0a);
+    And (a=YesB, b=b[0], out=temp0b);
+    And (a=YesC, b=c[0], out=temp0c);
+    And (a=YesD, b=d[0], out=temp0d);
+    Or (a=temp0a, b=temp0b, out=temp0ab);
+    Or (a=temp0ab, b=temp0c, out=temp0abc);
+    Or (a=temp0abc, b=temp0d, out=out[0]);
+
+    And (a=YesA, b=a[1], out=temp1a);
+    And (a=YesB, b=b[1], out=temp1b);
+    And (a=YesC, b=c[1], out=temp1c);
+    And (a=YesD, b=d[1], out=temp1d);
+    Or (a=temp1a, b=temp1b, out=temp1ab);
+    Or (a=temp1ab, b=temp1c, out=temp1abc);
+    Or (a=temp1abc, b=temp1d, out=out[1]);
+
+    And (a=YesA, b=a[2], out=temp2a);
+    And (a=YesB, b=b[2], out=temp2b);
+    And (a=YesC, b=c[2], out=temp2c);
+    And (a=YesD, b=d[2], out=temp2d);
+    Or (a=temp2a, b=temp2b, out=temp2ab);
+    Or (a=temp2ab, b=temp2c, out=temp2abc);
+    Or (a=temp2abc, b=temp2d, out=out[2]);
+
+    And (a=YesA, b=a[3], out=temp3a);
+    And (a=YesB, b=b[3], out=temp3b);
+    And (a=YesC, b=c[3], out=temp3c);
+    And (a=YesD, b=d[3], out=temp3d);
+    Or (a=temp3a, b=temp3b, out=temp3ab);
+    Or (a=temp3ab, b=temp3c, out=temp3abc);
+    Or (a=temp3abc, b=temp3d, out=out[3]);
+
+    And (a=YesA, b=a[4], out=temp4a);
+    And (a=YesB, b=b[4], out=temp4b);
+    And (a=YesC, b=c[4], out=temp4c);
+    And (a=YesD, b=d[4], out=temp4d);
+    Or (a=temp4a, b=temp4b, out=temp4ab);
+    Or (a=temp4ab, b=temp4c, out=temp4abc);
+    Or (a=temp4abc, b=temp4d, out=out[4]);
+
+    And (a=YesA, b=a[5], out=temp5a);
+    And (a=YesB, b=b[5], out=temp5b);
+    And (a=YesC, b=c[5], out=temp5c);
+    And (a=YesD, b=d[5], out=temp5d);
+    Or (a=temp5a, b=temp5b, out=temp5ab);
+    Or (a=temp5ab, b=temp5c, out=temp5abc);
+    Or (a=temp5abc, b=temp5d, out=out[5]);
+
+    And (a=YesA, b=a[6], out=temp6a);
+    And (a=YesB, b=b[6], out=temp6b);
+    And (a=YesC, b=c[6], out=temp6c);
+    And (a=YesD, b=d[6], out=temp6d);
+    Or (a=temp6a, b=temp6b, out=temp6ab);
+    Or (a=temp6ab, b=temp6c, out=temp6abc);
+    Or (a=temp6abc, b=temp6d, out=out[6]);
+
+    And (a=YesA, b=a[7], out=temp7a);
+    And (a=YesB, b=b[7], out=temp7b);
+    And (a=YesC, b=c[7], out=temp7c);
+    And (a=YesD, b=d[7], out=temp7d);
+    Or (a=temp7a, b=temp7b, out=temp7ab);
+    Or (a=temp7ab, b=temp7c, out=temp7abc);
+    Or (a=temp7abc, b=temp7d, out=out[7]);
+
+    And (a=YesA, b=a[8], out=temp8a);
+    And (a=YesB, b=b[8], out=temp8b);
+    And (a=YesC, b=c[8], out=temp8c);
+    And (a=YesD, b=d[8], out=temp8d);
+    Or (a=temp8a, b=temp8b, out=temp8ab);
+    Or (a=temp8ab, b=temp8c, out=temp8abc);
+    Or (a=temp8abc, b=temp8d, out=out[8]);
+
+    And (a=YesA, b=a[9], out=temp9a);
+    And (a=YesB, b=b[9], out=temp9b);
+    And (a=YesC, b=c[9], out=temp9c);
+    And (a=YesD, b=d[9], out=temp9d);
+    Or (a=temp9a, b=temp9b, out=temp9ab);
+    Or (a=temp9ab, b=temp9c, out=temp9abc);
+    Or (a=temp9abc, b=temp9d, out=out[9]);
+
+    And (a=YesA, b=a[10], out=temp10a);
+    And (a=YesB, b=b[10], out=temp10b);
+    And (a=YesC, b=c[10], out=temp10c);
+    And (a=YesD, b=d[10], out=temp10d);
+    Or (a=temp10a, b=temp10b, out=temp10ab);
+    Or (a=temp10ab, b=temp10c, out=temp10abc);
+    Or (a=temp10abc, b=temp10d, out=out[10]);
+
+    And (a=YesA, b=a[11], out=temp11a);
+    And (a=YesB, b=b[11], out=temp11b);
+    And (a=YesC, b=c[11], out=temp11c);
+    And (a=YesD, b=d[11], out=temp11d);
+    Or (a=temp11a, b=temp11b, out=temp11ab);
+    Or (a=temp11ab, b=temp11c, out=temp11abc);
+    Or (a=temp11abc, b=temp11d, out=out[11]);
+
+    And (a=YesA, b=a[12], out=temp12a);
+    And (a=YesB, b=b[12], out=temp12b);
+    And (a=YesC, b=c[12], out=temp12c);
+    And (a=YesD, b=d[12], out=temp12d);
+    Or (a=temp12a, b=temp12b, out=temp12ab);
+    Or (a=temp12ab, b=temp12c, out=temp12abc);
+    Or (a=temp12abc, b=temp12d, out=out[12]);
+
+    And (a=YesA, b=a[13], out=temp13a);
+    And (a=YesB, b=b[13], out=temp13b);
+    And (a=YesC, b=c[13], out=temp13c);
+    And (a=YesD, b=d[13], out=temp13d);
+    Or (a=temp13a, b=temp13b, out=temp13ab);
+    Or (a=temp13ab, b=temp13c, out=temp13abc);
+    Or (a=temp13abc, b=temp13d, out=out[13]);
+
+    And (a=YesA, b=a[14], out=temp14a);
+    And (a=YesB, b=b[14], out=temp14b);
+    And (a=YesC, b=c[14], out=temp14c);
+    And (a=YesD, b=d[14], out=temp14d);
+    Or (a=temp14a, b=temp14b, out=temp14ab);
+    Or (a=temp14ab, b=temp14c, out=temp14abc);
+    Or (a=temp14abc, b=temp14d, out=out[14]);
+
+    And (a=YesA, b=a[15], out=temp15a);
+    And (a=YesB, b=b[15], out=temp15b);
+    And (a=YesC, b=c[15], out=temp15c);
+    And (a=YesD, b=d[15], out=temp15d);
+    Or (a=temp15a, b=temp15b, out=temp15ab);
+    Or (a=temp15ab, b=temp15c, out=temp15abc);
+    Or (a=temp15abc, b=temp15d, out=out[15]);
 }
